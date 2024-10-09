@@ -100,7 +100,7 @@ for theme in '' '-Purple' '-Pink' '-Red' '-Orange' '-Yellow' '-Green' '-Teal' '-
         fi
 
         if [[ "$type" == '-Gruvbox' ]]; then
-          background_color='#fbf1c7'
+          background_color='#ebdbb2'
           case "$theme" in
             '')
               theme_color='#458588'
@@ -295,7 +295,7 @@ for theme in '' '-Purple' '-Pink' '-Red' '-Orange' '-Yellow' '-Green' '-Teal' '-
         fi
 
         if [[ "$type" == '-Gruvbox' ]]; then
-          background_color='#282524'
+          background_color='#282828'
           case "$theme" in
             '')
               theme_color='#83a598'

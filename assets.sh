@@ -325,11 +325,11 @@ make_assets() {
         titlebar_dark='#1f2029'
         ;;
       -Gruvbox)
-        background_light='#f9f5d7'
-        background_dark='#282524'
+        background_light='#fbf1c7'
+        background_dark='#282828'
         background_dark_alt='#3c3836'
-        titlebar_light='#fbf1c7'
-        titlebar_dark='#242220'
+        titlebar_light='#ebdbb2'
+        titlebar_dark='#1d2021'
         ;;
       -Everforest)
         background_light='#fdf6e3'
