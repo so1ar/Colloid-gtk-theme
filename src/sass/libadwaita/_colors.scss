@@ -106,8 +106,8 @@ $trough_active_color: gtkalpha(currentColor, .25);
 $fill_color: $accent_bg_color;
 $fill_text_color: $accent_fg_color;
 
-$slider_color: $headerbar_bg_color;
-$slider_hover_color: $headerbar_backdrop_color;
+$slider_color: $view_bg_color;
+$slider_hover_color: $window_bg_color;
 
 $osd_fg_color: transparentize(white, .1);
 $osd_text_color: white;
@@ -132,6 +132,7 @@ $dimmer_opacity: 0.3;
 $disabled_opacity: 0.45;
 $strong_disabled_opacity: 0.3;
 
+@if $gnome_version == 'new' {
 :root {
   --accent-blue: #3584e4;
   --accent-teal: #2190a4;
@@ -199,4 +200,5 @@ $strong_disabled_opacity: 0.3;
 
   --shade-color: @shade_color;
   --scrollbar-outline-color: @scrollbar_outline_color;
+}
 }
