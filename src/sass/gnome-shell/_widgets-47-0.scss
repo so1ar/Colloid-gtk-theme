@@ -1,3 +1,10 @@
+
+@if $gnome_version == 'new' and $colortype == 'system' {
+  $primary:            -st-accent-color;
+  $indicator:          -st-accent-color;
+  $inverse-indicator:  -st-accent-color;
+}
+
 @import 'common/a11y';
 @import 'common/base';
 @import 'common/buttons';
