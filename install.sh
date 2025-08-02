@@ -37,8 +37,12 @@ SIZE_VARIANTS=('' '-Compact')
 
 if [[ "$(command -v gnome-shell)" ]]; then
   echo && gnome-shell --version
+
   SHELL_VERSION="$(gnome-shell --version | cut -d ' ' -f 3 | cut -d . -f -1)"
-  if [[ "${SHELL_VERSION:-}" -ge "47" ]]; then
+
+  if [[ "${SHELL_VERSION:-}" -ge "48" ]]; then
+    GS_VERSION="48-0"
+  elif [[ "${SHELL_VERSION:-}" -ge "47" ]]; then
     GS_VERSION="47-0"
   elif [[ "${SHELL_VERSION:-}" -ge "46" ]]; then
     GS_VERSION="46-0"
@@ -53,7 +57,7 @@ if [[ "$(command -v gnome-shell)" ]]; then
   fi
 else
   echo "'gnome-shell' not found, using styles for last gnome-shell version available."
-  GS_VERSION="47-0"
+  GS_VERSION="48-0"
 fi
 
 usage() {
@@ -78,7 +82,7 @@ OPTIONS:
                           2. fixed                       Using fixed theme colors (that will break light/dark mode switch)
 
   --tweaks                Specify versions for tweaks
-                          1. [nord|dracula|gruvbox|everforest|catppuccin|all]  (Nord/Dracula/Gruvbox/Everforet/Catppuccin/all) ColorSchemes version
+                          1. [nord|dracula|gruvbox|everforest|catppuccin|all]  (Nord/Dracula/Gruvbox/Everforest/Catppuccin/all) ColorSchemes version
                           2. black                       Blackness color version
                           3. rimless                     Remove the 1px border about windows and menus
                           4. normal                      Normal windows button style like gnome default theme (titlebuttons: max/min/close)
@@ -157,6 +161,10 @@ install() {
   mkdir -p                                                                                   "${THEME_DIR}-xhdpi/xfwm4"
   cp -r "${SRC_DIR}/main/xfwm4/themerc"                                                      "${THEME_DIR}-xhdpi/xfwm4/themerc"
   sed -i "s/button_offset=6/button_offset=12/"                                               "${THEME_DIR}-xhdpi/xfwm4/themerc"
+
+  mkdir -p                                                                                   "${THEME_DIR}/labwc"
+  cp "${SRC_DIR}/main/labwc/themerc${color}${scheme}"                                        "${THEME_DIR}/labwc/themerc"
+  cp -r "${SRC_DIR}/assets/labwc/assets${color}/"*.svg                                       "${THEME_DIR}/labwc/"
 
   mkdir -p                                                                                   "${THEME_DIR}/plank"
   if [[ "$color" == '-Light' ]]; then
